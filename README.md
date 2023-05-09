@@ -27,7 +27,7 @@ Add the `start` parameter to the `sc create` command to start the service immedi
 sc create SatisfactoryBotService binPath="D:\Games\SatisfactoryBot\SatisfactoryBot.exe" start=auto
 ```
 
-> The `auto` value for the `start` parameter means that the service will start automatically when Windows starts up.
+The `auto` value for the `start` parameter means that the service will start automatically when Windows starts up.
 
 Once the service is created, you can manage it like any other Windows service. Use the `sc start` command to start the service, `sc stop` command to stop it, and `sc delete` command to remove it.
 
