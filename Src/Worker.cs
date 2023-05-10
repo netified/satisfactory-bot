@@ -24,6 +24,9 @@ namespace SatisfactoryBot
     using DSharpPlus.CommandsNext;
     using DSharpPlus.Entities;
     using DSharpPlus.EventArgs;
+    using DSharpPlus.Interactivity.Enums;
+    using DSharpPlus.Interactivity.Extensions;
+    using DSharpPlus.Interactivity;
     using DSharpPlus.SlashCommands;
     using Extensions;
     using Microsoft.Extensions.Configuration;
@@ -116,6 +119,12 @@ namespace SatisfactoryBot
         /// <param name="e">The <see cref="ReadyEventArgs"/> instance containing the event data.</param>
         private static async Task Ready(DiscordClient sender, ReadyEventArgs e)
         {
+            sender.UseInteractivity(new InteractivityConfiguration()
+            {
+                PollBehaviour = PollBehaviour.KeepEmojis,
+                Timeout = TimeSpan.FromSeconds(30)
+            });
+
             await sender.UpdateStatusAsync(new DiscordActivity()
             {
                 Name = $"Satisfactory server",
