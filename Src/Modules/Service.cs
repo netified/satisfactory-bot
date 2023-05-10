@@ -34,7 +34,7 @@ namespace SatisfactoryBot.Modules
 
     [SlashRequireGuild]
     [SpecificGuildOnly]
-    internal class Server : ApplicationCommandModule
+    internal class Service : ApplicationCommandModule
     {
         internal static ServerInfo ServerInfo { get; set; } = new();
 

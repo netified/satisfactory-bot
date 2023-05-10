@@ -39,7 +39,7 @@ namespace SatisfactoryBot.Core
         internal static Task StopServer(Process process)
         {
             process.Kill(true);
-            Server.ServerInfo = new()
+            Service.ServerInfo = new()
             {
                 Id = 0,
                 Status = ServerInfo.ServerStatus.Offline,
@@ -70,7 +70,7 @@ namespace SatisfactoryBot.Core
             cmd.Exited += new EventHandler(ProcessExited);
             cmd.Start();
 
-            Server.ServerInfo = new()
+            Service.ServerInfo = new()
             {
                 Id = cmd.Id,
                 Status = ServerInfo.ServerStatus.Online,
@@ -92,7 +92,7 @@ namespace SatisfactoryBot.Core
         private static async void ProcessExited(object? sender, EventArgs e)
         {
             await Task.Delay(5000);
-            var serverInfo = Server.ServerInfo;
+            var serverInfo = Service.ServerInfo;
 
             if (!serverInfo.Stopped)
             {
